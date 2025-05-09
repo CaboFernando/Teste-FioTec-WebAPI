@@ -36,5 +36,35 @@ namespace Infodengue.API.Controllers
             var relatorios = await _relatorioAppService.ListarRelatoriosAsync();
             return Ok(relatorios);
         }
+
+        [HttpGet("filtro")]
+        public async Task<IActionResult> FiltrarPorIbgePeriodoArbovirose([FromQuery] string codigoIbge, [FromQuery] int semanaInicio, [FromQuery] int semanaFim, [FromQuery] string arbovirose)
+        {
+            var result = await _relatorioAppService.FiltrarPorIbgePeriodoArboviroseAsync(codigoIbge, semanaInicio, semanaFim, arbovirose);
+            return Ok(result);
+        }
+
+        [HttpGet("total-arboviroses")]
+        public async Task<IActionResult> TotalPorArbovirose()
+        {
+            var result = await _relatorioAppService.TotalPorArboviroseAsync();
+            return Ok(result);
+        }
+
+        [HttpGet("total-cidades")]
+        public async Task<IActionResult> TotalPorCidade()
+        {
+            var result = await _relatorioAppService.TotalPorCidadeAsync();
+            return Ok(result);
+        }
+
+        [HttpGet("relatorios-cidades")]
+        public async Task<IActionResult> RelatoriosPorCidades()
+        {
+            var result = await _relatorioAppService.RelatoriosPorCidadesAsync();
+            return Ok(result);
+        }
+
+
     }
 }

@@ -3,6 +3,7 @@ using Infodengue.Application.Interfaces;
 using Infodengue.Domain.Entities;
 using Infodengue.Domain.Interfaces;
 using System.Net.Http.Json;
+using AutoMapper;
 
 namespace Infodengue.Application.Services
 {
@@ -11,15 +12,18 @@ namespace Infodengue.Application.Services
         private readonly ISolicitanteRepository _solicitanteRepo;
         private readonly IRelatorioRepository _relatorioRepo;
         private readonly HttpClient _http;
+        private readonly IMapper _mapper;
 
         public RelatorioAppService(
             ISolicitanteRepository solicitanteRepo,
             IRelatorioRepository relatorioRepo,
-            HttpClient http)
+            HttpClient http,
+            IMapper mapper)
         {
             _solicitanteRepo = solicitanteRepo;
             _relatorioRepo = relatorioRepo;
             _http = http;
+            _mapper = mapper;
         }
 
         public async Task<RelatorioDto> ConsultarRelatorioAsync(SolicitacaoRelatorioDto solicitacaoDto)
@@ -90,5 +94,56 @@ namespace Infodengue.Application.Services
                 TotalCasos = r.TotalCasos
             });
         }
+
+        public async Task<IEnumerable<RelatorioDto>> FiltrarPorIbgePeriodoArboviroseAsync(string codigoIbge, int semanaInicio, int semanaFim, string arbovirose)
+        {
+            var relatorios = await _relatorioRepo.BuscarAsync(r =>
+                r.CodigoIbge == codigoIbge &&
+                r.SemanaInicio >= semanaInicio &&
+                r.SemanaFim <= semanaFim &&
+                r.Arbovirose.ToLower() == arbovirose.ToLower()
+            );
+
+            return _mapper.Map<IEnumerable<RelatorioDto>>(relatorios);
+        }
+
+        public async Task<IEnumerable<object>> TotalPorArboviroseAsync()
+        {
+            var relatorios = await _relatorioRepo.GetAllAsync();
+
+            return relatorios
+                .GroupBy(r => r.Arbovirose)
+                .Select(g => new
+                {
+                    Arbovirose = g.Key,
+                    Total = g.Count()
+                });
+        }
+
+        public async Task<IEnumerable<object>> TotalPorCidadeAsync()
+        {
+            var codigos = new[] { "3304557", "3550308" }; // RJ e SP
+            var relatorios = await _relatorioRepo.BuscarAsync(r => codigos.Contains(r.CodigoIbge));
+
+            return relatorios
+                .GroupBy(r => r.CodigoIbge)
+                .Select(g => new
+                {
+                    CodigoIbge = g.Key,
+                    Total = g.Count()
+                });
+        }
+
+        public async Task<IEnumerable<RelatorioDto>> RelatoriosPorCidadesAsync()
+        {
+            var codigos = new[] { "3304557", "3550308" }; // RJ e SP
+            var relatorios = await _relatorioRepo.BuscarAsync(r => codigos.Contains(r.CodigoIbge));
+
+            return _mapper.Map<IEnumerable<RelatorioDto>>(relatorios);
+        }
+
+
+
+
     }
 }

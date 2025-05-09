@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Infodengue.Application")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3f5df8a2a81622f3ca246d7651d9cd5fd996a391")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+15e3723124fd6f0a45e06eb98d84b31298bce433")]
 [assembly: System.Reflection.AssemblyProductAttribute("Infodengue.Application")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Infodengue.Application")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

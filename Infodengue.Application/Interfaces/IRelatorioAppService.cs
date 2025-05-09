@@ -6,5 +6,10 @@ namespace Infodengue.Application.Interfaces
     {
         Task<RelatorioDto> ConsultarRelatorioAsync(SolicitacaoRelatorioDto solicitacaoDto);
         Task<IEnumerable<RelatorioDto>> ListarRelatoriosAsync();
+        Task<IEnumerable<RelatorioDto>> FiltrarPorIbgePeriodoArboviroseAsync(string codigoIbge, int semanaInicio, int semanaFim, string arbovirose);
+        Task<IEnumerable<object>> TotalPorArboviroseAsync();
+        Task<IEnumerable<object>> TotalPorCidadeAsync();
+        Task<IEnumerable<RelatorioDto>> RelatoriosPorCidadesAsync();
+
     }
 }

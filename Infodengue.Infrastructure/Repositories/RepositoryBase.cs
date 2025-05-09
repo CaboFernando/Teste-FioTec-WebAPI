@@ -2,6 +2,7 @@ using Infodengue.Domain.Interfaces;
 using Infodengue.Infrastructure.Context;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
+using Infodengue.Domain.Entities;
 
 namespace Infodengue.Infrastructure.Repositories
 {
@@ -22,6 +23,15 @@ namespace Infodengue.Infrastructure.Repositories
 
         public async Task<IEnumerable<T>> FindAsync(Expression<Func<T, bool>> predicate) =>
             await _dbSet.Where(predicate).ToListAsync();
+
+        public async Task<IEnumerable<Relatorio>> BuscarAsync(Expression<Func<Relatorio, bool>> predicate)
+        {
+            return await _context.Relatorios
+                .Include(r => r.Solicitante)
+                .Where(predicate)
+                .ToListAsync();
+        }
+
 
         public async Task AddAsync(T entity)
         {

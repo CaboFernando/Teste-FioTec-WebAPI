@@ -1,6 +1,6 @@
 Teste-FioTec-WebAPI
 
-- Esse repositório tem como objetivo avaliar o desenvolvedor com base na execução do seguinte teste:
+Esse repositório tem como objetivo avaliar o desenvolvedor com base na execução do seguinte teste:
 
 Desenvolver utilizando padrão de arquitetura de software uma WebAPI Rest que
 consulta WebAPI da plataforma INFODENGUE.

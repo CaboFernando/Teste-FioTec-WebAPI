@@ -1,5 +1,6 @@
 using Infodengue.Infrastructure.Context;
 using Microsoft.EntityFrameworkCore;
+using Infodengue.API.Configurations;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +11,7 @@ builder.Services.AddDbContext<InfodengueContext>(options =>
 // Swagger
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddRepositories();
 
 var app = builder.Build();
 

@@ -12,6 +12,7 @@ builder.Services.AddDbContext<InfodengueContext>(options =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddRepositories();
+builder.Services.AddApplicationServices();
 
 var app = builder.Build();
 

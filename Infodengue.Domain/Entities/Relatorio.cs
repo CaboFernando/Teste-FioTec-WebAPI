@@ -9,6 +9,8 @@ namespace Infodengue.Domain.Entities
         public int SemanaFim { get; set; }
         public string CodigoIbge { get; set; } = null!;
         public string Municipio { get; set; } = null!;
+
+        public int TotalCasos { get; set; }
         
         public Guid SolicitanteId { get; set; }
         public Solicitante Solicitante { get; set; } = null!;

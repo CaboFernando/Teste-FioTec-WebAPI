@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Infodengue.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d43cb4888a1ac19f26806cbe17ed240416dc9d0e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a5954d95c879a23c0c09bd2f49b3845e69022501")]
 [assembly: System.Reflection.AssemblyProductAttribute("Infodengue.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Infodengue.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

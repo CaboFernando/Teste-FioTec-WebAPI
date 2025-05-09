@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Infodengue.CrossCutting")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2502d2644be2b3a94467d47ccc5f7a5e71a0df1b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+11b5b0bc2274fdfd4b08f5c35360a36d122c8d74")]
 [assembly: System.Reflection.AssemblyProductAttribute("Infodengue.CrossCutting")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Infodengue.CrossCutting")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
